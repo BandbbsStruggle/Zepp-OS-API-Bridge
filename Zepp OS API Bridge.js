@@ -16,7 +16,6 @@ const widget = {
     SLIDE_SWITCH: hmUI.widget.SLIDE_SWITCH,
     HISTOGRAM: hmUI.widget.HISTOGRAM,
     PICK_DAT: hmUI.widget.PICK_DAT,
-    // POLYLINE: hmUI.widget.FILL_RECT,
 }
 
 export
@@ -78,13 +77,11 @@ function createWidget(widgetType, params) {
                 delete widgetParams.visible;
             }
             widget.setProperty = function(propertyId, val) {
-                // 处理 VISIBLE 属性单独设置的情况
                 if (propertyId === 'VISIBLE') {
                     widget.style.display = val ? 'block' : 'none';
                     return;
                 }
 
-                // 处理 MORE 属性设置的情况
                 if (propertyId === 'MORE') {
                     for (const prop in val) {
                         if (val.hasOwnProperty(prop)) {
@@ -94,7 +91,6 @@ function createWidget(widgetType, params) {
                     return;
                 }
 
-                // 处理其他属性设置的情况
                 widget.style[propertyId.toLowerCase()] = val;
             };
 
